@@ -1,0 +1,14 @@
+<div 
+  data-ui--dialog-target="overlay" 
+  class="fixed inset-0 z-50 bg-black/80 data-[ui--dialog-state-value=open]:animate-in data-[ui--dialog-state-value=closed]:animate-out data-[ui--dialog-state-value=closed]:fade-out-0 data-[state=open]:fade-in-0">
+</div>
+<%= tag.div class: class_names, **opts do %>
+  <%= content %>
+
+  <% if render_close_button? %>
+    <div data-action="click->ui--dialog#close" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[ui--dialog-state-value=open]:bg-accent data-[ui--dialog-state-value=open]:text-muted-foreground">
+      Cloes dialog
+      <span className="sr-only">Close</span>
+    </div>
+  <% end %>
+<% end %>
